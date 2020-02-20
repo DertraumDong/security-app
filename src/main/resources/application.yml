@@ -1,0 +1,45 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /ds
+
+spring:
+  datasource:
+    username: root
+    password: 621248
+    url: jdbc:mysql://192.168.3.74:3306/ds?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 192.168.3.74
+    port: 6379
+    timeout: 300
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.cn.ds.commodity.model
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#showSql
+logging:
+  level:
+    com:
+      cn:
+        mapper : debug
+
+der:
+  security:
+    code:
+      image:
+        width: 100
+        height: 40
+      sms:
+        length: 5
+        expireIn: 20
+        url: /hello,/hello/*
+      rememberMe: 50
+    oauth2:
+      clients[0]:
+        clientId: der
+        clientSecret: traum
+        accessTokenValidateSeconds: 3600
